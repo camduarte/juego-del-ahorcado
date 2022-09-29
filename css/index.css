@@ -1,0 +1,36 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+main {
+    width: 940px;
+    margin: 100px auto 0 auto;
+}
+
+#iniciar-juego {
+    display: block;
+
+    width: 317px;
+    height: 114px;
+    margin: 0 auto 0 auto;
+
+    background: #0A3871;
+    border-radius: 24px;
+
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+#agregar-palabra {
+    display: block;
+
+    width: 280px;
+    height: 67px;
+    margin: 38px auto 0 auto;
+
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+
+    font-size: 16px;
+    color: #0A3871;
+}
