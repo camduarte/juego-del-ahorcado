@@ -1,0 +1,25 @@
+#pizarra {
+    display: block;
+}
+
+#btn-nuevo-juego {
+    width: 332px;
+    height: 67px;
+
+    background: #0A3871;
+    border-radius: 24px;
+
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+#btn-desistir {
+    width: 332px;
+    height: 67px;
+
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+
+    font-size: 16px;
+    color: #0A3871;
+}
