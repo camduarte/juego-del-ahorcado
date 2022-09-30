@@ -1,0 +1,49 @@
+#nueva-palabra {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    font-size: 32px;
+    color: #0A3871;
+}   
+
+.msj-advertencia {
+    height: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.txt-advertencia {
+    margin-left: 0.5em;
+    font-size: 12px;
+    color: #495057;
+    opacity: 0.8;
+}
+
+.botonera {
+    display: flex;
+    justify-content: center;
+}
+
+#btn-guardar {
+    width: 332px;
+    height: 67px;
+
+    background: #0A3871;
+    border-radius: 24px;
+
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+#btn-cancelar {
+    width: 332px;
+    height: 67px;
+    margin-left: 0.5em;
+
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+
+    font-size: 16px;
+    color: #0A3871;
+}

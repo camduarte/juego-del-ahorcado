@@ -14,10 +14,12 @@
             <img src="../img/logo.png" alt="Logo Alura">
         </header>
         <main>
-            <input type="text" value="Ingrese una palabra">
-            <p><img src="../img/advertencia.png" alt="Advertencia">Máx. de 8 letras</p>
-            <button>Guardar y empezar</button>
-            <button>Cancelar</button>
+            <input id="nueva-palabra" type="text" maxlength="32" placeholder="Ingrese una palabra">
+            <p class="msj-advertencia"><img src="../img/advertencia.png" alt="Señal de advertencia"><span class="txt-advertencia"> Máx. de 8 letras</span></p>
+            <div class="botonera">
+                <button id="btn-guardar">Guardar y empezar</button>
+                <button id="btn-cancelar">Cancelar</button>
+            </div>
         </main>
     </body>
 </html>
