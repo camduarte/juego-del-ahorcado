@@ -10,5 +10,15 @@
         palabraSecreta = palabrasSecretas[indiceAleatorio];
     }
 
+    /**
+     * Dibuja los guiones de la palabra secreta.
+     */
+    function dibujarGuiones() {
+        let pincel = document.getElementById("pizarra").getContext("2d");
+        pincel.fillStyle = "#0A3871";
+        
+    }
+
     escogerPalabraSecreta();
-})()
+
+})();
