@@ -1,10 +1,11 @@
 .contenedor-ahorcado {
-    margin-top: 5%;
+    /* margin-top: 5%; */
 }
 
 #pizarra {
     display: block;
     margin: 0 auto;
+    background-color: beige;
 }
 
 .botonera {
