@@ -4,6 +4,8 @@
 
 #pizarra {
     display: block;
+    /* width: 600px; 
+    height: 355px; */
     margin: 0 auto;
 }
 
