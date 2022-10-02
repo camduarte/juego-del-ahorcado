@@ -41,7 +41,24 @@
         pincel.stroke();
     }
 
+    /**
+     * Verifica si el caracter es una letra.
+     * @return true si es una letra.
+     */
+    function esLetra(caracter) {
+        const expReg = /[a-zA-Z]/;
+        if(expReg.test(caracter)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     escogerPalabraSecreta();
     dibujarGuiones();
 
+    // Capturo las teclas presionadas por el usuario.
+    document.addEventListener("keypress", function(evento) {
+        let resultado = esLetra(evento.key);
+    });
 })();
