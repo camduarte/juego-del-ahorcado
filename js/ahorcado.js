@@ -14,17 +14,22 @@
      * Dibuja los guiones de la palabra secreta.
      */
     function dibujarGuiones() {
-        let pincel = document.getElementById("pizarra").getContext("2d");
+        let pizarra = document.getElementById("pizarra");
+        let pincel = pizarra.getContext("2d");
         pincel.strokeStyle = "rgb(10,56,113)";
         pincel.lineWidth = 4;
         pincel.beginPath();
 
-        let x = 50;
-        let y = 250;
+        let y = 330;
         let linea = 50;
         const espacio = 10;
 
+        // Para centrar los guiones.
+        const mitadPizarra = pizarra.width/2;
         let arrPalabraSecreta = palabraSecreta.split("");
+        let mitadPalabra = arrPalabraSecreta.length/2;
+        let x = mitadPizarra - mitadPalabra * (linea + espacio);
+
         for (let indice = 0; indice < arrPalabraSecreta.length; indice++) {
             pincel.moveTo(x, y); // punto inicial de la línea.
             
