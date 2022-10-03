@@ -3,7 +3,7 @@
     let palabraSecreta = "";
     let arrPalabraSecreta;
     let coordenadasX;
-    let maxIntentos = 4;
+    let maxIntentos = 9;
     let intentos = 0;
     let aciertos = 0;
 
@@ -79,7 +79,7 @@
      * Verifica si el usuario alcanzó el máximo de intentos y finaliza el juego.
      */
     function finalizarJuego () {
-        if(++intentos === maxIntentos) { // Verifico si el usuario perdió.
+        if(++intentos === maxIntentos) {
             dibujarMensaje("¡Fin del juego!", "40px", "rgb(243,71,35)", 0, 40);
         }
     }
@@ -88,7 +88,7 @@
      * Verifica si el usuario ganó.
      */
     function verificarGanador() {
-        if(++aciertos === palabraSecreta.length) { // Verifico si el usuario gana.
+        if(++aciertos === palabraSecreta.length) {
             dibujarMensaje("Ganaste, ¡Felicidades!", "40px", "rgb(15,211,54)", 0, 40);
         }
     }
@@ -109,8 +109,79 @@
         pincel.fillText(mensaje, x, y);
     }
 
+    /**
+     * Dibuja la horca.
+     */
+    function dibujarHorca() {
+        const pizarra = document.getElementById("pizarra");
+        const pincel = pizarra.getContext("2d");
+        pincel.strokeStyle = "rgb(10,56,113)";
+        pincel.lineWidth = 6;
+
+        // Horca part1
+        pincel.beginPath();
+        const largoHorcaParte1 = 210;
+        const xHorcaParte1 = pizarra.width/2 - largoHorcaParte1/2;
+        const yHorcaParte1 = 290;
+        pincel.moveTo(xHorcaParte1, yHorcaParte1);
+        pincel.lineTo(xHorcaParte1 + largoHorcaParte1, yHorcaParte1);
+        pincel.stroke();
+
+        // Horca parte2
+        pincel.beginPath();
+        const alturaHorcaParte2 = 280; 
+        const yHorcaParte2 = 290;
+        const xHorcaParte2 = xHorcaParte1 + 40;
+        pincel.moveTo(xHorcaParte2, yHorcaParte2);
+        pincel.lineTo(xHorcaParte2, yHorcaParte2 - alturaHorcaParte2);
+        pincel.stroke();
+
+        // Horca parte3
+        pincel.beginPath();
+        const largoHorcaParte3 = 130;
+        const yHorcaParte3 = yHorcaParte2 - alturaHorcaParte2;
+        const xHorcaParte3 = xHorcaParte2;
+        pincel.moveTo(xHorcaParte3, yHorcaParte3);
+        pincel.lineTo(xHorcaParte3 + largoHorcaParte3, yHorcaParte3);
+        pincel.stroke();
+
+        // Horca parte4
+        pincel.beginPath();
+        const alturaHorcaParte4 = 60;
+        const yHorcaParte4 = yHorcaParte3;
+        const xHorcaParte4 = xHorcaParte3 + largoHorcaParte3;
+        pincel.moveTo(xHorcaParte4, yHorcaParte4);
+        pincel.lineTo(xHorcaParte4, yHorcaParte4 + alturaHorcaParte4);
+        pincel.stroke();
+
+        // Cabeza
+        pincel.beginPath();
+        const radio = 35;
+        const xCabeza = xHorcaParte4;
+        const yCabeza = yHorcaParte4 + alturaHorcaParte4 + radio;
+        const anguloInicio = 0;
+        const anguloFinal = 2 * Math.PI;
+        pincel.arc(xCabeza, yCabeza, radio, anguloInicio, anguloFinal);
+        pincel.stroke();
+
+        // Tronco
+        pincel.beginPath();
+        const alturaTronco = 80;
+        const yTronco = yCabeza + radio;
+        const xTronco = xCabeza;
+        pincel.moveTo(xTronco, yTronco);
+        pincel.lineTo(xTronco, yTronco + alturaTronco);
+        pincel.stroke();
+
+        // Pierna izquierda
+        // Pierna Derecha
+        // Brazo izquierdo
+        // Brazo derecho
+    }
+
     escogerPalabraSecreta();
     dibujarGuiones();
+    dibujarHorca();
 
     let xLetraIncorrecta = 100;
     let letrasIncorrectas = new Array();
@@ -118,7 +189,7 @@
     // Capturo las teclas presionadas por el usuario.
     document.addEventListener("keypress", function(evento) {
         let letra = evento.key;
-        
+
         if(esLetra(letra)) {
             let mayusculaLetra = letra.toUpperCase(); 
             
