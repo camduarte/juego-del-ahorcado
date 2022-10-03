@@ -147,7 +147,7 @@
 
         // Horca parte4
         pincel.beginPath();
-        const alturaHorcaParte4 = 60;
+        const alturaHorcaParte4 = 50;
         const yHorcaParte4 = yHorcaParte3;
         const xHorcaParte4 = xHorcaParte3 + largoHorcaParte3;
         pincel.moveTo(xHorcaParte4, yHorcaParte4);
@@ -174,9 +174,42 @@
         pincel.stroke();
 
         // Pierna izquierda
+        pincel.beginPath();
+        const alturaPiernaIzquierda = 50;
+        const yPiernaIzquierda = yTronco + alturaTronco;
+        const xPiernaIzquierda = xTronco;
+        pincel.moveTo(xPiernaIzquierda, yPiernaIzquierda);
+        pincel.lineTo(xPiernaIzquierda - 30, yPiernaIzquierda + alturaPiernaIzquierda);
+        pincel.stroke();
+
         // Pierna Derecha
+        pincel.beginPath();
+        const alturaPiernaDerecha = 50;
+        const yPiernaDerecha = yTronco + alturaTronco;
+        const xPiernaDerecha = xTronco;
+        pincel.moveTo(xPiernaDerecha, yPiernaDerecha);
+        pincel.lineTo(xPiernaDerecha + 30, yPiernaDerecha + alturaPiernaDerecha);
+        pincel.stroke();
+
         // Brazo izquierdo
+        pincel.beginPath();
+        const largoBrazoIzquierdo = 50;
+        const yBrazoIzquierdo = yTronco + 20;
+        const xBrazoIzquierdo = xTronco;
+        pincel.moveTo(xBrazoIzquierdo, yBrazoIzquierdo);
+        pincel.lineTo(xBrazoIzquierdo - 30, yBrazoIzquierdo + largoBrazoIzquierdo);
+        pincel.stroke();
+
         // Brazo derecho
+        pincel.beginPath();
+        const largoBrazoDerecho = 50;
+        const yBrazoDerecho = yTronco + 20;
+        const xBrazoDerecho = xTronco;
+        pincel.moveTo(xBrazoDerecho, yBrazoDerecho);
+        pincel.lineTo(xBrazoDerecho + 30, yBrazoDerecho + largoBrazoDerecho);
+        pincel.stroke();
+
+
     }
 
     escogerPalabraSecreta();
