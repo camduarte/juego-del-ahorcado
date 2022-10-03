@@ -80,7 +80,7 @@
      */
     function finalizarJuego () {
         if(++intentos === maxIntentos) { // Verifico si el usuario perdió.
-            alert("Perdiste!!!");
+            dibujarMensaje("¡Fin del juego!", "40px", "rgb(243,71,35)", 0, 40);
         }
     }
 
@@ -89,7 +89,7 @@
      */
     function verificarGanador() {
         if(++aciertos === palabraSecreta.length) { // Verifico si el usuario gana.
-            dibujarMensaje("Ganaste, \n¡Felicidades!", "40px", "green", 0, 40);
+            dibujarMensaje("Ganaste, ¡Felicidades!", "40px", "rgb(15,211,54)", 0, 40);
         }
     }
 
