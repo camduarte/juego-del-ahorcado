@@ -1,11 +1,53 @@
 (function() {
+    const pizarra = document.getElementById("pizarra");
+    const pincel = pizarra.getContext("2d");
+    const colorAzul = "rgb(10,56,113)";
+
     let palabrasSecretas = ["HTML","CSS","KOTLIN","PYTHON","JAVA","COBOL","ASSEMBLY","SQL","PHP","LINUX","WINDOWS","ANDROID"];
     let palabraSecreta = "";
     let arrPalabraSecreta;
     let coordenadasX;
-    let maxIntentos = 9;
+    const maxIntentos = 9;
     let intentos = 0;
     let aciertos = 0;
+
+    // Coordenadas de la horca
+    const largoHorcaParte1 = 210;
+    const xHorcaParte1 = pizarra.width/2 - largoHorcaParte1/2;
+    const yHorcaParte1 = 290;
+
+    const alturaHorcaParte2 = 280; 
+    const yHorcaParte2 = 290;
+    const xHorcaParte2 = xHorcaParte1 + 40;
+    
+    const largoHorcaParte3 = 130;
+    const yHorcaParte3 = yHorcaParte2 - alturaHorcaParte2;
+    const xHorcaParte3 = xHorcaParte2;
+    
+    const alturaHorcaParte4 = 50;
+    const yHorcaParte4 = yHorcaParte3;
+    const xHorcaParte4 = xHorcaParte3 + largoHorcaParte3;
+    
+    const radio = 35;
+    const xCabeza = xHorcaParte4;
+    const yCabeza = yHorcaParte4 + alturaHorcaParte4 + radio;
+    const anguloInicio = 0;
+    const anguloFinal = 2 * Math.PI;
+    
+    const alturaTronco = 80;
+    const yTronco = yCabeza + radio;
+    const xTronco = xCabeza;
+    
+    const alturaPiernaIzquierda = 50;
+    const yPiernaIzquierda = yTronco + alturaTronco;
+    const xPiernaIzquierda = xTronco;
+    const alturaPiernaDerecha = 50;
+    const yPiernaDerecha = yTronco + alturaTronco;
+    const xPiernaDerecha = xTronco;
+    
+    const largoBrazoDerecho = 50;
+    const yBrazoDerecho = yTronco + 20;
+    const xBrazoDerecho = xTronco;
 
     /**
      * Escoge la palabra secreta.
@@ -13,16 +55,13 @@
     function escogerPalabraSecreta() {
         indiceAleatorio = Math.floor(Math.random() * palabrasSecretas.length);
         palabraSecreta = palabrasSecretas[indiceAleatorio];
-        console.log(palabraSecreta);
     }
 
     /**
      * Dibuja los guiones de la palabra secreta.
      */
     function dibujarGuiones() {
-        let pizarra = document.getElementById("pizarra");
-        let pincel = pizarra.getContext("2d");
-        pincel.strokeStyle = "rgb(10,56,113)";
+        pincel.strokeStyle = colorAzul;
         pincel.lineWidth = 4;
         pincel.beginPath();
 
@@ -68,9 +107,7 @@
      * @param {La letra a ser dibujada.} letra 
      */
     function dibujarLetra(letra, tamano, x, y) {
-        let pizarra = document.getElementById("pizarra");
-        let pincel = pizarra.getContext("2d");
-        pincel.fillStyle = "rgb(10,56,113)";
+        pincel.fillStyle = colorAzul;
         pincel.font = tamano + " Inter, sans-serif";
         pincel.fillText(letra, x, y, 250);
     }
@@ -102,119 +139,114 @@
      * @param {*} y La coordenada en el eje y.
      */
     function dibujarMensaje(mensaje, tamano, color, x, y) {
-        const pizarra = document.getElementById("pizarra");
-        const pincel = pizarra.getContext("2d");
         pincel.fillStyle = color;
         pincel.font = tamano + " Inter, sans-serif";
         pincel.fillText(mensaje, x, y);
     }
 
     /**
-     * Dibuja la horca.
+     * Dibuja la base de la horca.
      */
-    function dibujarHorca() {
-        const pizarra = document.getElementById("pizarra");
-        const pincel = pizarra.getContext("2d");
-        pincel.strokeStyle = "rgb(10,56,113)";
+    function dibujarBaseHorca() {
+        pincel.strokeStyle = colorAzul;
         pincel.lineWidth = 6;
 
-        // Horca part1
         pincel.beginPath();
-        const largoHorcaParte1 = 210;
-        const xHorcaParte1 = pizarra.width/2 - largoHorcaParte1/2;
-        const yHorcaParte1 = 290;
         pincel.moveTo(xHorcaParte1, yHorcaParte1);
         pincel.lineTo(xHorcaParte1 + largoHorcaParte1, yHorcaParte1);
         pincel.stroke();
+    }
 
-        // Horca parte2
-        pincel.beginPath();
-        const alturaHorcaParte2 = 280; 
-        const yHorcaParte2 = 290;
-        const xHorcaParte2 = xHorcaParte1 + 40;
-        pincel.moveTo(xHorcaParte2, yHorcaParte2);
-        pincel.lineTo(xHorcaParte2, yHorcaParte2 - alturaHorcaParte2);
-        pincel.stroke();
+    /**
+     * Dibuja la horca.
+     */
+    function dibujarHorca(intento) {
+        pincel.strokeStyle = colorAzul;
+        pincel.lineWidth = 6;
 
-        // Horca parte3
-        pincel.beginPath();
-        const largoHorcaParte3 = 130;
-        const yHorcaParte3 = yHorcaParte2 - alturaHorcaParte2;
-        const xHorcaParte3 = xHorcaParte2;
-        pincel.moveTo(xHorcaParte3, yHorcaParte3);
-        pincel.lineTo(xHorcaParte3 + largoHorcaParte3, yHorcaParte3);
-        pincel.stroke();
-
-        // Horca parte4
-        pincel.beginPath();
-        const alturaHorcaParte4 = 50;
-        const yHorcaParte4 = yHorcaParte3;
-        const xHorcaParte4 = xHorcaParte3 + largoHorcaParte3;
-        pincel.moveTo(xHorcaParte4, yHorcaParte4);
-        pincel.lineTo(xHorcaParte4, yHorcaParte4 + alturaHorcaParte4);
-        pincel.stroke();
-
-        // Cabeza
-        pincel.beginPath();
-        const radio = 35;
-        const xCabeza = xHorcaParte4;
-        const yCabeza = yHorcaParte4 + alturaHorcaParte4 + radio;
-        const anguloInicio = 0;
-        const anguloFinal = 2 * Math.PI;
-        pincel.arc(xCabeza, yCabeza, radio, anguloInicio, anguloFinal);
-        pincel.stroke();
-
-        // Tronco
-        pincel.beginPath();
-        const alturaTronco = 80;
-        const yTronco = yCabeza + radio;
-        const xTronco = xCabeza;
-        pincel.moveTo(xTronco, yTronco);
-        pincel.lineTo(xTronco, yTronco + alturaTronco);
-        pincel.stroke();
-
-        // Pierna izquierda
-        pincel.beginPath();
-        const alturaPiernaIzquierda = 50;
-        const yPiernaIzquierda = yTronco + alturaTronco;
-        const xPiernaIzquierda = xTronco;
-        pincel.moveTo(xPiernaIzquierda, yPiernaIzquierda);
-        pincel.lineTo(xPiernaIzquierda - 30, yPiernaIzquierda + alturaPiernaIzquierda);
-        pincel.stroke();
-
-        // Pierna Derecha
-        pincel.beginPath();
-        const alturaPiernaDerecha = 50;
-        const yPiernaDerecha = yTronco + alturaTronco;
-        const xPiernaDerecha = xTronco;
-        pincel.moveTo(xPiernaDerecha, yPiernaDerecha);
-        pincel.lineTo(xPiernaDerecha + 30, yPiernaDerecha + alturaPiernaDerecha);
-        pincel.stroke();
-
-        // Brazo izquierdo
-        pincel.beginPath();
-        const largoBrazoIzquierdo = 50;
-        const yBrazoIzquierdo = yTronco + 20;
-        const xBrazoIzquierdo = xTronco;
-        pincel.moveTo(xBrazoIzquierdo, yBrazoIzquierdo);
-        pincel.lineTo(xBrazoIzquierdo - 30, yBrazoIzquierdo + largoBrazoIzquierdo);
-        pincel.stroke();
-
-        // Brazo derecho
-        pincel.beginPath();
-        const largoBrazoDerecho = 50;
-        const yBrazoDerecho = yTronco + 20;
-        const xBrazoDerecho = xTronco;
-        pincel.moveTo(xBrazoDerecho, yBrazoDerecho);
-        pincel.lineTo(xBrazoDerecho + 30, yBrazoDerecho + largoBrazoDerecho);
-        pincel.stroke();
-
+        switch (intento) {
+            case 1:
+                // Horca parte2
+                pincel.beginPath();
+                pincel.moveTo(xHorcaParte2, yHorcaParte2);
+                pincel.lineTo(xHorcaParte2, yHorcaParte2 - alturaHorcaParte2);
+                pincel.stroke();
+                break;
+            case 2:
+                // Horca parte3
+                pincel.beginPath();
+                pincel.moveTo(xHorcaParte3, yHorcaParte3);
+                pincel.lineTo(xHorcaParte3 + largoHorcaParte3, yHorcaParte3);
+                pincel.stroke();                
+                break;
+            case 3:
+                // Horca parte4
+                pincel.beginPath();
+                pincel.moveTo(xHorcaParte4, yHorcaParte4);
+                pincel.lineTo(xHorcaParte4, yHorcaParte4 + alturaHorcaParte4);
+                pincel.stroke();    
+                break;
+            case 4:
+                // Cabeza
+                pincel.beginPath();
+                pincel.arc(xCabeza, yCabeza, radio, anguloInicio, anguloFinal);
+                pincel.stroke();
+                break;
+            case 5:
+                // Tronco
+                pincel.beginPath();
+                pincel.moveTo(xTronco, yTronco);
+                pincel.lineTo(xTronco, yTronco + alturaTronco);
+                pincel.stroke();                
+                break;
+            case 6:
+                // Pierna izquierda
+                pincel.beginPath();
+                pincel.moveTo(xPiernaIzquierda, yPiernaIzquierda);
+                pincel.lineTo(xPiernaIzquierda - 30, yPiernaIzquierda + alturaPiernaIzquierda);
+                pincel.stroke();                
+                break;
+            case 7:
+                // Pierna Derecha
+                pincel.beginPath();
+                pincel.moveTo(xPiernaDerecha, yPiernaDerecha);
+                pincel.lineTo(xPiernaDerecha + 30, yPiernaDerecha + alturaPiernaDerecha);
+                pincel.stroke();        
+                break;
+            case 8:
+                // Brazo izquierdo
+                pincel.beginPath();
+                const largoBrazoIzquierdo = 50;
+                const yBrazoIzquierdo = yTronco + 20;
+                const xBrazoIzquierdo = xTronco;
+                pincel.moveTo(xBrazoIzquierdo, yBrazoIzquierdo);
+                pincel.lineTo(xBrazoIzquierdo - 30, yBrazoIzquierdo + largoBrazoIzquierdo);
+                pincel.stroke();
+                break;
+            case 9:
+                // Brazo derecho
+                pincel.beginPath();
+                pincel.moveTo(xBrazoDerecho, yBrazoDerecho);
+                pincel.lineTo(xBrazoDerecho + 30, yBrazoDerecho + largoBrazoDerecho);
+                pincel.stroke();
+                break;
+            default:
+                console.log("Este caso no debería ocurrir.");
+                break;
+        }
 
     }
 
-    escogerPalabraSecreta();
-    dibujarGuiones();
-    dibujarHorca();
+    /**
+     * Inicia el juego.
+     */
+    function iniciarJuego() {
+        escogerPalabraSecreta();
+        dibujarGuiones();
+        dibujarBaseHorca();
+    }
+
+    iniciarJuego();
 
     let xLetraIncorrecta = 100;
     let letrasIncorrectas = new Array();
@@ -243,6 +275,7 @@
                     letrasIncorrectas.push(mayusculaLetra);
 
                     finalizarJuego();
+                    dibujarHorca(intentos);
                 }
             }
         }
