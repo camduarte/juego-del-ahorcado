@@ -2,6 +2,8 @@
     const pizarra = document.getElementById("pizarra");
     const pincel = pizarra.getContext("2d");
     const colorAzul = "rgb(10,56,113)";
+    const colorRojo = "rgb(243,71,35)";
+    const colorVerde = "rgb(15,211,54)";
 
     let palabrasSecretas = ["HTML","CSS","KOTLIN","PYTHON","JAVA","COBOL","ASSEMBLY","SQL","PHP","LINUX","WINDOWS","ANDROID"];
     let palabraSecreta = "";
@@ -117,7 +119,7 @@
      */
     function finalizarJuego () {
         if(++intentos === maxIntentos) {
-            dibujarMensaje("¡Fin del juego!", "40px", "rgb(243,71,35)", 0, 40);
+            dibujarMensaje("¡Fin del juego!", "40px", colorRojo, 0, 40);
         }
     }
 
@@ -126,7 +128,7 @@
      */
     function verificarGanador() {
         if(++aciertos === palabraSecreta.length) {
-            dibujarMensaje("Ganaste, ¡Felicidades!", "40px", "rgb(15,211,54)", 0, 40);
+            dibujarMensaje("Ganaste, ¡Felicidades!", "40px", colorVerde, 0, 40);
         }
     }
 
