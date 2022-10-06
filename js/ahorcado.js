@@ -4,6 +4,8 @@
     const colorAzul = "rgb(10,56,113)";
     const colorRojo = "rgb(243,71,35)";
     const colorVerde = "rgb(15,211,54)";
+    const MSG_PERDISTE = "¡Fin del juego!";
+    const MSG_GANASTE = "Ganaste, ¡Felicidades!";
 
     let palabrasSecretas = ["HTML","CSS","KOTLIN","PYTHON","JAVA","COBOL","ASSEMBLY","SQL","PHP","LINUX","WINDOWS","ANDROID"];
     let palabraSecreta = "";
@@ -12,6 +14,7 @@
     const maxIntentos = 9;
     let intentos = 0;
     let aciertos = 0;
+    let juegoTerminado = false;
 
     // Coordenadas de la horca
     const largoHorcaParte1 = 210;
@@ -119,7 +122,8 @@
      */
     function finalizarJuego () {
         if(++intentos === maxIntentos) {
-            dibujarMensaje("¡Fin del juego!", "40px", colorRojo, 0, 40);
+            juegoTerminado = true;
+            dibujarMensaje(MSG_PERDISTE, "40px", colorRojo, 0, 40);
         }
     }
 
@@ -128,7 +132,8 @@
      */
     function verificarGanador() {
         if(++aciertos === palabraSecreta.length) {
-            dibujarMensaje("Ganaste, ¡Felicidades!", "40px", colorVerde, 0, 40);
+            juegoTerminado = true;
+            dibujarMensaje(MSG_GANASTE, "40px", colorVerde, 0, 40);
         }
     }
 
@@ -255,29 +260,31 @@
 
     // Capturo las teclas presionadas por el usuario.
     document.addEventListener("keypress", function(evento) {
-        let letra = evento.key;
+        if(!juegoTerminado) {
+            let letra = evento.key;
 
-        if(esLetra(letra)) {
-            let mayusculaLetra = letra.toUpperCase(); 
-            
-            if(arrPalabraSecreta.includes(mayusculaLetra)) { // Verifico si está dentro de la palabra secreta.
-                for (let indice = 0; indice < arrPalabraSecreta.length; indice++) {
-                    if(mayusculaLetra === arrPalabraSecreta[indice]) {
-                        //Dibujar letra correcta.
-                        dibujarLetra(arrPalabraSecreta[indice], "60px", coordenadasX[indice], 357);
-                        verificarGanador();
+            if(esLetra(letra)) {
+                let mayusculaLetra = letra.toUpperCase(); 
+                
+                if(arrPalabraSecreta.includes(mayusculaLetra)) { // Verifico si está dentro de la palabra secreta.
+                    for (let indice = 0; indice < arrPalabraSecreta.length; indice++) {
+                        if(mayusculaLetra === arrPalabraSecreta[indice]) {
+                            //Dibujar letra correcta.
+                            dibujarLetra(arrPalabraSecreta[indice], "60px", coordenadasX[indice], 357);
+                            verificarGanador();
+                        }
                     }
-                }
-            } else {
-                //Dibujar letra incorrecta.
-                if(!letrasIncorrectas.includes(mayusculaLetra)) { // Verifico que la letra incorrecta no este repetida.
-                    dibujarLetra(mayusculaLetra, "28px", xLetraIncorrecta, 395);
-
-                    xLetraIncorrecta = xLetraIncorrecta + 25; // Voy corriendo el eje x para que las letras se dibujen una al lado de la otra.
-                    letrasIncorrectas.push(mayusculaLetra);
-
-                    finalizarJuego();
-                    dibujarHorca(intentos);
+                } else {
+                    //Dibujar letra incorrecta.
+                    if(!letrasIncorrectas.includes(mayusculaLetra)) { // Verifico que la letra incorrecta no este repetida.
+                        dibujarLetra(mayusculaLetra, "28px", xLetraIncorrecta, 395);
+    
+                        xLetraIncorrecta = xLetraIncorrecta + 25; // Voy corriendo el eje x para que las letras se dibujen una al lado de la otra.
+                        letrasIncorrectas.push(mayusculaLetra);
+    
+                        finalizarJuego();
+                        dibujarHorca(intentos);
+                    }
                 }
             }
         }
