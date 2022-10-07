@@ -5,7 +5,8 @@
     const colorRojo = "rgb(243,71,35)";
     const colorVerde = "rgb(15,211,54)";
     const MSG_PERDISTE = "¡Fin del juego!";
-    const MSG_GANASTE = "Ganaste, ¡Felicidades!";
+    const MSG_GANASTE_1 = "Ganaste,";
+    const MSG_GANASTE_2 = "¡Felicidades!";
 
     let palabrasSecretas = ["HTML","CSS","KOTLIN","PYTHON","JAVA","COBOL","ASSEMBLY","SQL","PHP","LINUX","WINDOWS","ANDROID"];
     let palabraSecreta = "";
@@ -123,7 +124,7 @@
     function finalizarJuego () {
         if(++intentos === maxIntentos) {
             juegoTerminado = true;
-            dibujarMensaje(MSG_PERDISTE, "40px", colorRojo, 0, 40);
+            dibujarMensaje(MSG_PERDISTE, "30px", colorRojo, 390, 40);
         }
     }
 
@@ -133,7 +134,8 @@
     function verificarGanador() {
         if(++aciertos === palabraSecreta.length) {
             juegoTerminado = true;
-            dibujarMensaje(MSG_GANASTE, "40px", colorVerde, 0, 40);
+            dibujarMensaje(MSG_GANASTE_1, "30px", colorVerde, 420, 40);
+            dibujarMensaje(MSG_GANASTE_2, "30px", colorVerde, 420, 80);
         }
     }
 
