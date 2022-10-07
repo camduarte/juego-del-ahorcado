@@ -16,6 +16,8 @@
     let intentos = 0;
     let aciertos = 0;
     let juegoTerminado = false;
+    let xLetraIncorrecta = 100;
+    let letrasIncorrectas = new Array();
 
     // Coordenadas de la horca
     const largoHorcaParte1 = 210;
@@ -255,10 +257,21 @@
         dibujarBaseHorca();
     }
 
-    iniciarJuego();
+    /**
+     * Reinicia el juego.
+     */
+    function reiniciarJuego() {
+        pincel.clearRect(0, 0, pizarra.width, pizarra.height);
+        juegoTerminado = false;
+        intentos = 0;
+        aciertos = 0;
+        palabraSecreta = "";
+        letrasIncorrectas.length = 0; // elimino todos los elementos.
+        xLetraIncorrecta = 100;
+        iniciarJuego();
+    }
 
-    let xLetraIncorrecta = 100;
-    let letrasIncorrectas = new Array();
+    iniciarJuego();
 
     // Capturo las teclas presionadas por el usuario.
     document.addEventListener("keypress", function(evento) {
@@ -290,5 +303,11 @@
                 }
             }
         }
+    });
+
+    // Reiniciar juego
+    const btnNuevoJuego = document.getElementById("btn-nuevo-juego");
+    btnNuevoJuego.addEventListener("click", function() {
+        reiniciarJuego();
     });
 })();
