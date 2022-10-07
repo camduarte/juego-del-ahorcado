@@ -103,11 +103,7 @@
      */
     function esLetra(caracter) {
         const expReg = /[a-zA-Z]/;
-        if(expReg.test(caracter)) {
-            return true;
-        } else {
-            return false;
-        }
+        return expReg.test(caracter);
     }
 
     /**
@@ -261,7 +257,7 @@
      * Reinicia el juego.
      */
     function reiniciarJuego() {
-        pincel.clearRect(0, 0, pizarra.width, pizarra.height);
+        pincel.clearRect(0, 0, pizarra.width, pizarra.height); // limpio la pizarra.
         juegoTerminado = false;
         intentos = 0;
         aciertos = 0;
