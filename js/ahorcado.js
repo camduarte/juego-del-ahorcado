@@ -17,6 +17,7 @@
     let aciertos = 0;
     let juegoTerminado = false;
     let xLetraIncorrecta = 100;
+    let letrasCorrectas = new Array();
     let letrasIncorrectas = new Array();
 
     // Coordenadas de la horca
@@ -262,6 +263,7 @@
         intentos = 0;
         aciertos = 0;
         palabraSecreta = "";
+        letrasCorrectas.length = 0; // elimino todos los elementos.
         letrasIncorrectas.length = 0; // elimino todos los elementos.
         xLetraIncorrecta = 100;
         iniciarJuego();
@@ -278,12 +280,15 @@
                 let mayusculaLetra = letra.toUpperCase(); 
                 
                 if(arrPalabraSecreta.includes(mayusculaLetra)) { // Verifico si está dentro de la palabra secreta.
-                    for (let indice = 0; indice < arrPalabraSecreta.length; indice++) {
-                        if(mayusculaLetra === arrPalabraSecreta[indice]) {
-                            //Dibujar letra correcta.
-                            dibujarLetra(arrPalabraSecreta[indice], "60px", coordenadasX[indice], 357);
-                            verificarGanador();
-                        }
+                    if (!letrasCorrectas.includes(mayusculaLetra)) { // Verifico si la letra correcta ya ha sido ingresada.
+                        for (let indice = 0; indice < arrPalabraSecreta.length; indice++) {
+                            if(mayusculaLetra === arrPalabraSecreta[indice]) {
+                                //Dibujar letra correcta.
+                                dibujarLetra(arrPalabraSecreta[indice], "60px", coordenadasX[indice], 357);
+                                verificarGanador();
+                                letrasCorrectas.push(mayusculaLetra);
+                            }
+                        }    
                     }
                 } else {
                     //Dibujar letra incorrecta.
