@@ -1,7 +1,7 @@
 (function() {
     const pizarra = document.getElementById("pizarra");
     const pincel = pizarra.getContext("2d");
-    const colorAzul = "rgb(10,56,113)";
+    const colorMarron = "rgb(29.8,30.6,29.0)";
     const colorRojo = "rgb(243,71,35)";
     const colorVerde = "rgb(15,211,54)";
     const MSG_PERDISTE = "¡Fin del juego!";
@@ -70,7 +70,7 @@
      * Dibuja los guiones de la palabra secreta.
      */
     function dibujarGuiones() {
-        pincel.strokeStyle = colorAzul;
+        pincel.strokeStyle = colorMarron;
         pincel.lineWidth = 4;
         pincel.beginPath();
 
@@ -112,7 +112,7 @@
      * @param {La letra a ser dibujada.} letra 
      */
     function dibujarLetra(letra, tamano, x, y) {
-        pincel.fillStyle = colorAzul;
+        pincel.fillStyle = colorMarron;
         pincel.font = tamano + " Inter, sans-serif";
         pincel.fillText(letra, x, y, 250);
     }
@@ -156,7 +156,7 @@
      * Dibuja la base de la horca.
      */
     function dibujarBaseHorca() {
-        pincel.strokeStyle = colorAzul;
+        pincel.strokeStyle = colorMarron;
         pincel.lineWidth = 6;
 
         pincel.beginPath();
@@ -169,7 +169,7 @@
      * Dibuja la horca.
      */
     function dibujarHorca(intento) {
-        pincel.strokeStyle = colorAzul;
+        pincel.strokeStyle = colorMarron;
         pincel.lineWidth = 6;
 
         switch (intento) {

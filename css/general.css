@@ -1,10 +1,18 @@
+.logo {
+    margin-top: 8px;
+    margin-left: 8px;
+    width: 200px;
+    height: 52px;
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #F3F5FC;
+    background-color: #d2d1da;
 }
 
 main {
     width: 940px;
+    height: 500px;
     margin: 0 auto;
     
     display: flex;
@@ -13,4 +21,12 @@ main {
 
 a {
     text-decoration: none;
+}
+
+.copyright {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4c4e4a;
 }
