@@ -12,20 +12,21 @@
     justify-content: space-between;
 }
 
-#form-nueva-palabra {
+.form-nueva-palabra {
     margin-top: 4%;
 }
 
-#nueva-palabra {
+.nueva-palabra {
     background-color: transparent;
     border: none;
     color: var(--color-negro);
     font-size: 2rem;
     outline: none;
-}   
+}
 
 .botonera {
-    margin-bottom: 4%;
+    display: flex;
+    flex-direction: column;
 }
 
 .msj-advertencia {
@@ -33,6 +34,7 @@
     color: var(--color-negro);
     display: flex;
     height: 1rem;
+    margin-bottom: 1rem;
 }
 
 .txt-advertencia {
@@ -42,7 +44,7 @@
     opacity: 0.8;
 }
 
-#btn-guardar {
+.btn-guardar {
     background: var(--color-negro);
     border-radius: 1.5rem;
     color: var(--color-blanco);
@@ -52,7 +54,7 @@
     width: 332px;
 }
 
-#btn-cancelar {
+.btn-cancelar {
     background: var(--color-blanco);
     border: 0.063rem solid var(--color-negro);
     border-radius: 1.5rem;
@@ -62,4 +64,36 @@
     height: 67px;
     margin-left: 0.5em;
     width: 332px;
+}
+
+/* Responsivo para para teléfonos móviles */
+@media screen and (max-width:576px) {
+    .form-nueva-palabra {
+        margin-top: 15%;
+    }
+
+    .nueva-palabra {
+        font-size: 1.5rem;
+    }
+
+    .botonera {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .botones {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-guardar {
+        margin-bottom: 1rem;
+    }
+
+    .btn-cancelar {
+        margin: 0;
+    }
 }

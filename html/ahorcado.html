@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Juego del ahorcado</title>
         <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +18,7 @@
             <img class="logo" src="../img/camd-logo.svg" alt="Logo camd">
         </header>
         <main class="contenedor-ahorcado">
-            <canvas id="pizarra" width="600" height="402"></canvas>
+            <canvas id="pizarra" class="pizarra" width="600" height="402"></canvas>
             <div class="botonera">
                 <button id="btn-nuevo-juego">Nuevo juego</button>
                 <a href="../index.html">
@@ -25,7 +26,7 @@
                 </a>
             </div>
         </main>
-        <footer class="copyright"><p>Todos los derechos reservados &#169; 2022 Christian Ariel Modesto Duarte</p></footer>
+        <footer class="copyright"><p><span class="copyright__msg1">Todos los derechos reservados</span><span> &#169; 2022 Christian Ariel Modesto Duarte</span></p></footer>
         <script src="../js/ahorcado-min.js"></script>
     </body>
 </html>

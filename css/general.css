@@ -39,9 +39,18 @@ a {
 }
 
 .copyright {
-    height: 3.125rem;
-    display: flex;
-    justify-content: center;
     align-items: center;
     color: var(--color-negro);
+    display: flex;
+    height: 3.125rem;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Responsivo para para teléfonos móviles */
+@media screen and (max-width:576px) {
+    .copyright__msg1::after {
+        content: "\a";
+        white-space: pre;
+    }
 }
