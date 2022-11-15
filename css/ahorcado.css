@@ -1,22 +1,22 @@
-#pizarra {
-    display: block;
-    margin: 0 auto;
+.contenedor-ahorcado {
+    display: flex;
+    flex-direction: column;
 }
 
 .botonera {
-    margin-top: 5%;
+    margin-top: 2.5%;
 }
 
 #btn-nuevo-juego {
     width: 332px;
     height: 67px;
 
-    background: #4c4e4a;
-    border-radius: 24px;
+    background: var(--color-negro);
+    border-radius: 1.5rem;
 
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
-    color: #FFFFFF;
+    color: var(--color-blanco);
 }
 
 #btn-desistir {
@@ -24,11 +24,11 @@
     height: 67px;
     margin-left: 0.5em;
 
-    background: #EFEFEF;
-    border: 1px solid #4c4e4a;
-    border-radius: 24px;
+    background: var(--color-blanco);
+    border: 0.063rem solid var(--color-negro);
+    border-radius: 1.5rem;
 
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
-    color: #4c4e4a;
+    color: var(--color-negro);
 }

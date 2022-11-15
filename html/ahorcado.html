@@ -12,21 +12,20 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/ahorcado.css">
     </head>
-    <body>
+    <body class="contenedor">
         <header class="encabezado">
-            <img class="logo" src="./img/camd-logo.svg" alt="Logo camd">
+            <img class="logo" src="../img/camd-logo.svg" alt="Logo camd">
         </header>
-        <main>
-            <div class="contenedor-ahorcado">
-                <canvas id="pizarra" width="600" height="402"></canvas>
-                <div class="botonera">
-                    <button id="btn-nuevo-juego">Nuevo juego</button>
-                    <a href="../index.html">
-                        <button id="btn-desistir">Desistir</button>
-                    </a>
-                </div>
+        <main class="contenedor-ahorcado">
+            <canvas id="pizarra" width="600" height="402"></canvas>
+            <div class="botonera">
+                <button id="btn-nuevo-juego">Nuevo juego</button>
+                <a href="../index.html">
+                    <button id="btn-desistir">Desistir</button>
+                </a>
             </div>
         </main>
+        <footer class="copyright"><p>Todos los derechos reservados &#169; 2022 Christian Ariel Modesto Duarte</p></footer>
         <script src="../js/ahorcado-min.js"></script>
     </body>
 </html>
