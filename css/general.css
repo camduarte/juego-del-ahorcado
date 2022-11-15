@@ -1,22 +1,37 @@
+:root {
+    --color-blanco: #d2d1da;
+    --color-negro: #4c4e4a;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .logo {
     height: 51px;
-    margin-left: 8px;
-    margin-top: 8px;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
     width: 150px;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #d2d1da;
+    background-color: var(--color-blanco);
 }
 
 main {
-    width: 940px;
-    height: 500px;
-    margin: 0 auto;
-    
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 a {
@@ -24,9 +39,9 @@ a {
 }
 
 .copyright {
-    height: 50px;
+    height: 3.125rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #4c4e4a;
+    color: var(--color-negro);
 }
