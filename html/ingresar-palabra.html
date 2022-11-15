@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Juego del ahorcado</title>
         <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,22 +12,26 @@
         <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/ingresar-palabra.css">
+        <script src="https://kit.fontawesome.com/070f11682f.js" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body class="contenedor">
         <header class="encabezado">
-            <img class="logo" src="./img/camd-logo.svg" alt="Logo camd">
+            <img class="logo" src="../img/camd-logo.svg" alt="Logo camd.">
         </header>
-        <main>
-            <div class="contenedor-ingresar-palabra">
-                <form id="form-nueva-palabra" >
+        <main class="contenedor-ingresar-palabra">
+            <div class="contenedor-nueva-palabra">
+                <form id="form-nueva-palabra">
                     <input id="nueva-palabra" name="palabra" type="text" minlength="1" maxlength="8" placeholder="Ingrese una palabra">
                 </form>
-                <p class="msj-advertencia"><img src="../img/advertencia.png" alt="Señal de advertencia"><span class="txt-advertencia"> Máx. de 8 letras</span></p>
-                <button id="btn-guardar" type="submit" form="form-nueva-palabra" formaction="./ahorcado.html">Guardar y empezar</button>
-                <a href="../index.html">
-                    <button id="btn-cancelar" type="button">Cancelar</button>
-                </a>
+                <div class="botonera">
+                    <p class="msj-advertencia"><i class="fa-solid fa-circle-exclamation"></i><span class="txt-advertencia"> Máx. de 8 letras</span></p>
+                    <button id="btn-guardar" type="submit" form="form-nueva-palabra" formaction="./ahorcado.html">Guardar y empezar</button>
+                    <a href="../index.html">
+                        <button id="btn-cancelar" type="button">Cancelar</button>
+                    </a>
+                </div>
             </div>
         </main>
+        <footer class="copyright"><p>Todos los derechos reservados &#169; 2022 Christian Ariel Modesto Duarte</p></footer>
     </body>
 </html>
