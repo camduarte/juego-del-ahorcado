@@ -67,7 +67,7 @@
 }
 
 /* Responsivo para para teléfonos móviles */
-@media screen and (max-width:576px) {
+@media screen and (max-width:676px) {
     .form-nueva-palabra {
         margin-top: 15%;
     }

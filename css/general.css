@@ -48,7 +48,7 @@ a {
 }
 
 /* Responsivo para para teléfonos móviles */
-@media screen and (max-width:576px) {
+@media screen and (max-width:676px) {
     .copyright__msg1::after {
         content: "\a";
         white-space: pre;
