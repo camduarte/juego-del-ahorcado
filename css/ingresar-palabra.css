@@ -12,15 +12,12 @@
     justify-content: space-between;
 }
 
-.form-nueva-palabra {
-    margin-top: 4%;
-}
-
 .nueva-palabra {
     background-color: transparent;
     border: none;
     color: var(--color-negro);
     font-size: 2rem;
+    margin-top: 4%;
     outline: none;
 }
 
@@ -68,12 +65,9 @@
 
 /* Responsivo para para teléfonos móviles */
 @media screen and (max-width:676px) {
-    .form-nueva-palabra {
-        margin-top: 15%;
-    }
-
     .nueva-palabra {
         font-size: 1.5rem;
+        margin-top: 15%;
     }
 
     .botonera {

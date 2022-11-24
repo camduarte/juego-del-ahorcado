@@ -1,0 +1,1 @@
+(function(){const b="palabrasGuardadas";const c=JSON.parse(sessionStorage.getItem(b))||[];const a=document.getElementById("btn-guardar");a.addEventListener("click",function(){const d=document.getElementById("nueva-palabra").value.toUpperCase().replaceAll(" ","");if(d!=""&&!c.includes(d)){c.push(d);sessionStorage.setItem(b,JSON.stringify(c))}})})();

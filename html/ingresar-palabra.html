@@ -20,13 +20,13 @@
         </header>
         <main class="contenedor-ingresar-palabra">
             <div class="contenedor-nueva-palabra">
-                <form id="form-nueva-palabra" class="form-nueva-palabra">
-                    <input id="nueva-palabra" class="nueva-palabra" name="palabra" type="text" minlength="1" maxlength="8" placeholder="Ingrese una palabra">
-                </form>
+                <input id="nueva-palabra" class="nueva-palabra" name="palabra" type="text" minlength="1" maxlength="8" placeholder="Ingrese una palabra">
                 <div class="botonera">
                     <p class="msj-advertencia"><i class="fa-solid fa-circle-exclamation"></i><span class="txt-advertencia"> Máx. de 8 letras</span></p>
                     <div class="botones">
-                        <button id="btn-guardar" class="btn-guardar" type="submit" form="form-nueva-palabra" formaction="./ahorcado.html">Guardar y empezar</button>
+                        <a href="./ahorcado.html">
+                            <button id="btn-guardar" class="btn-guardar" type="button">Guardar y empezar</button>
+                        </a>
                         <a class="enlace-cancelar" href="../index.html">
                             <button id="btn-cancelar" class="btn-cancelar" type="button">Cancelar</button>
                         </a>
@@ -35,5 +35,6 @@
             </div>
         </main>
         <footer class="copyright"><p><span class="copyright__msg1">Todos los derechos reservados</span><span> &#169; 2022 Christian Ariel Modesto Duarte</span></p></footer>
+        <script src="../js/ingresar-palabra-min.js"></script>
     </body>
 </html>

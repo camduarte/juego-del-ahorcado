@@ -59,6 +59,20 @@
     const xBrazoDerecho = xTronco;
 
     /**
+     *  Agrega las palabras nuevas a la lista de palabras secretas.
+     */
+    function agregarPalabra() {
+        const palabrasGuardadas = JSON.parse(sessionStorage.getItem("palabrasGuardadas")) || [];
+        if(palabrasGuardadas.length != 0) {
+            palabrasGuardadas.forEach(function(palabra) {
+                if(!palabrasSecretas.includes(palabra)) {
+                    palabrasSecretas.push(palabra);
+                }
+            });
+        }
+    }
+
+    /**
      * Escoge la palabra secreta.
      */
     function escogerPalabraSecreta() {
@@ -268,20 +282,6 @@
         letrasIncorrectas.length = 0; // elimino todos los elementos.
         xLetraIncorrecta = 100;
         iniciarJuego();
-    }
-
-    /**
-     * Agrega una nueva palabra al juego.
-     */
-    function agregarPalabra() {
-        let parametros = window.location.search; // obtengo los parámetros en la url.
-        const urlParametros = new URLSearchParams(parametros);
-        if(urlParametros.has("palabra")) {
-            const palabra = urlParametros.get("palabra").toLocaleUpperCase();
-            if(!palabrasSecretas.includes(palabra)) {
-                palabrasSecretas.push(palabra);
-            }
-        }
     }
 
     iniciarJuego();
