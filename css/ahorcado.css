@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.pizarra {
+    background-color: aquamarine;
+}
+
 .botonera {
     margin-top: 2.5%;
 }
