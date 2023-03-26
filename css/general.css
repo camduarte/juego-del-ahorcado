@@ -29,19 +29,26 @@
     align-items: center;
 }
 
-.copyright {
+.footer {
     align-items: center;
     background-color: var(--color-azul);
     color: var(--color-blanco);
     display: flex;
     height: 8rem;
     justify-content: center;
+    font-size: 1rem;
 }
 
-/* Responsivo para para teléfonos móviles */
-@media screen and (max-width:676px) {
-    .copyright__msg1::after {
-        content: "\a";
-        white-space: pre;
+.footer__link {
+    color: var(--color-blanco);
+    font-size: 2rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .footer {
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
     }
 }

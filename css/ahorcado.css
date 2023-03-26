@@ -19,3 +19,11 @@
     height: 4.188rem;
     width: 20.75rem;
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .contenedor {
+        height: 100vh;
+        justify-content: space-between;
+    }
+}
