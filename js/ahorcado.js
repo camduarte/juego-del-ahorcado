@@ -42,13 +42,26 @@
     let letrasCorrectas = new Array();
     let letrasIncorrectas = new Array();
 
-    const dibujarBase = () => {
-        const x1 = initX - anchoPizarra/100*15;
+    const dibujarBaseParte1 = () => {
+        const y = initY;
+        const x1 = initX - anchoPizarra/100*10;
+        const x2 = anchoPizarra - anchoPizarra/100*35;
+
+        pincel.lineWidth = 5;
+        pincel.fillStyle = negro;
+        pincel.beginPath();
+        pincel.moveTo(x1, y);
+        pincel.lineTo(x2, y);
+        pincel.stroke();
+    } 
+
+    const dibujarBaseParte2 = () => {
+        const x1 = initX - anchoPizarra/100*5;
         const x2 = initX;
-        const x3 = initX + anchoPizarra/100*15;
+        const x3 = initX + anchoPizarra/100*5;
 
         const y1 = initY;
-        const y2 = initY - altoPizarra/100*15;
+        const y2 = initY - altoPizarra/100*5;
         const y3 = initY;
 
         pincel.lineWidth = 5;
@@ -302,7 +315,8 @@
         agregarPalabra();
         escogerPalabraSecreta();
         dibujarGuiones();
-        dibujarBase();
+        dibujarBaseParte1();
+        dibujarBaseParte2();
         dibujarPoste();
         dibujarSoporte();
         dibujarBarra();
