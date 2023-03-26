@@ -1,50 +1,41 @@
 :root {
-    --color-blanco: #d2d1da;
-    --color-negro: #4c4e4a;
+    --color-azul: #4e42d4;
+    --color-blanco: #f7f9fb;
+    --color-negro: #192549;
+    --color-rojo: #ff3859;
 }
 
 .contenedor {
+    background-image: url("../img/moroccan-flower.png");
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    justify-content: space-between;
-    width: 100vw;
+    font-family: 'Inter', sans-serif;
 }
 
 .encabezado {
+    background-color: var(--color-azul);
     display: flex;
     justify-content: flex-start;
+    padding: 2rem 4rem;
 }
 
 .logo {
-    height: 51px;
-    margin-left: 0.5rem;
-    margin-top: 0.5rem;
-    width: 150px;
+    height: 3.188rem;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--color-blanco);
-}
-
-main {
+.contenedor-principal {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-a {
-    text-decoration: none;
 }
 
 .copyright {
     align-items: center;
-    color: var(--color-negro);
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
     display: flex;
-    height: 3.125rem;
+    height: 8rem;
     justify-content: center;
-    text-align: center;
 }
 
 /* Responsivo para para teléfonos móviles */

@@ -1,6 +1,8 @@
 .contenedor-ahorcado {
+    align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .pizarra {
@@ -8,31 +10,12 @@
 }
 
 .botonera {
-    margin-top: 2.5%;
+    padding: 2rem;
 }
 
-#btn-nuevo-juego {
-    width: 332px;
-    height: 67px;
-
-    background: var(--color-negro);
-    border-radius: 1.5rem;
-
+.boton-nuevo-juego, .boton-desistir {
     font-size: 1rem;
     font-weight: bold;
-    color: var(--color-blanco);
-}
-
-#btn-desistir {
-    width: 332px;
-    height: 67px;
-    margin-left: 0.5em;
-
-    background: var(--color-blanco);
-    border: 0.063rem solid var(--color-negro);
-    border-radius: 1.5rem;
-
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--color-negro);
+    height: 4.188rem;
+    width: 20.75rem;
 }

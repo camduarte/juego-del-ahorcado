@@ -1,26 +1,26 @@
+.contenedor {
+    height: 100vh;
+    justify-content: space-between;
+}
+
 .menu-principal {
+    align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
 }
 
-#iniciar-juego {
-    background-color: var(--color-negro);
-    border-radius: 1.5rem;
-    color: var(--color-blanco);
+.boton-iniciar-juego {
     font-size: 1.125rem;
     font-weight: bold;
+    height: 114px;    
     width: 317px;
-    height: 114px;
 }
 
-#agregar-palabra {
-    background: var(--color-blanco);
-    border: 0.063rem solid var(--color-negro);
-    border-radius: 1.5rem;
-    color: var(--color-negro);
+.boton-agregar-palabra {
     font-size: 1rem;
     font-weight: bold;
     height: 67px;
-    margin-top: 38px;
     width: 280px;
 }

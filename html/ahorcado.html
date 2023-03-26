@@ -11,22 +11,23 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/boton.css">
         <link rel="stylesheet" href="../css/ahorcado.css">
     </head>
     <body class="contenedor">
         <header class="encabezado">
-            <img class="logo" src="../img/camd-logo.svg" alt="Logo camd">
+            <img class="logo" src="../img/camd-high-resolution-logo-color-on-transparent-background.png" alt="Logo camd">
         </header>
         <main class="contenedor-ahorcado">
             <canvas id="pizarra" class="pizarra" width="400" height="600"></canvas>
             <div class="botonera">
-                <button id="btn-nuevo-juego">Nuevo juego</button>
+                <button id="btn-nuevo-juego" class="boton-nuevo-juego boton-relleno boton">Nuevo juego</button>
                 <a href="../index.html">
-                    <button id="btn-desistir">Desistir</button>
+                    <button id="btn-desistir" class="boton-desistir boton-transparente boton">Desistir</button>
                 </a>
             </div>
         </main>
-        <footer class="copyright"><p><span class="copyright__msg1">Todos los derechos reservados</span><span> &#169; 2022 Christian Ariel Modesto Duarte</span></p></footer>
+        <footer class="copyright"><p>Desarrollado por Christian Ariel Modesto Duarte 2022</p></footer>
         <script src="../js/ahorcado.js"></script>
     </body>
 </html>
