@@ -2,23 +2,9 @@
     const pizarra = document.querySelector(".pizarra");
     const pincel = pizarra.getContext("2d");
 
-    const calcularAnchoCanvas = () => {
-        if(window.innerWidth > 768 ) {
-            pizarra.width = (window.innerWidth/100)*50;
-            console.log("desktop");
-        } else if (window.innerWidth <= 768 && window.innerWidth > 600) {
-            pizarra.width = (window.innerWidth/100)*75;
-            console.log("tablet");
-        } else if (window.innerWidth <= 600 && window.innerWidth >= 0) {
-            console.log("phone");
-            pizarra.width = (window.innerWidth/100)*75;
-        }        
-    }
-
-    calcularAnchoCanvas();
-
     let anchoPizarra = pizarra.width;
     let altoPizarra = pizarra.height;
+
     console.log(`ancho<${anchoPizarra}>, alto<${altoPizarra}>`);
 
     const initX = anchoPizarra/100*25; // %25
@@ -48,7 +34,7 @@
     let palabraSecreta = "";
     let arrPalabraSecreta;
     let coordenadasX;
-    const maxIntentos = 9;
+    const maxIntentos = 7;
     let intentos = 0;
     let aciertos = 0;
     let juegoTerminado = false;
@@ -221,19 +207,6 @@
         pincel.stroke();
     }
 
-    // Modifico el tamaño del canvas según la ventana.
-    // window.addEventListener('resize', () => {
-    //     console.log('resize');
-    //     if(window.innerWidth > 768 ) {
-    //         pizarra.width = (window.innerWidth/100)*50;
-    //     } else if (window.innerWidth <= 768) {
-    //         pizarra.width = (window.innerWidth/100)*75;
-    //     } else if (window.innerWidth <= 600) {
-    //         pizarra.width = (window.innerWidth/100)*75;
-    //     }
-    //     // si hay fallos del usuario se pude recrear el dibujo con la variable aciertos y errores (errores no esta creada.).
-    // });
-
     /**
      *  Agrega las palabras nuevas a la lista de palabras secretas.
      */
@@ -260,13 +233,13 @@
      * Dibuja los guiones de la palabra secreta.
      */
     function dibujarGuiones() {
-        pincel.strokeStyle = colorMarron;
+        pincel.fillStyle = negro;
         pincel.lineWidth = 4;
         pincel.beginPath();
 
         // let y = 362;
         let y = altoPizarra / 100 * 90;
-        let linea = 50;
+        let linea = 28;
         const espacio = 10;
 
         // Para centrar los guiones.
@@ -330,6 +303,9 @@
         escogerPalabraSecreta();
         dibujarGuiones();
         dibujarBase();
+        dibujarPoste();
+        dibujarSoporte();
+        dibujarBarra();
     }
 
     /**
@@ -353,7 +329,7 @@
     function finalizarJuego () {
         if(++intentos === maxIntentos) {
             juegoTerminado = true;
-            dibujarMensaje(MSG_PERDISTE, "30px", colorRojo, anchoPizarra/100*60, 40);
+            dibujarMensaje(MSG_PERDISTE, "19px", colorRojo, anchoPizarra/100*60, 40);
         }
     }
 
@@ -363,8 +339,8 @@
     function verificarGanador() {
         if(++aciertos === palabraSecreta.length) {
             juegoTerminado = true;
-            dibujarMensaje(MSG_GANASTE_1, "30px", colorVerde, anchoPizarra/100*60, 40);
-            dibujarMensaje(MSG_GANASTE_2, "30px", colorVerde, anchoPizarra/100*60, 80);
+            dibujarMensaje(MSG_GANASTE_1, "19px", colorVerde, anchoPizarra/100*60, 40);
+            dibujarMensaje(MSG_GANASTE_2, "19px", colorVerde, anchoPizarra/100*60, 80);
         }
     }
 
@@ -374,31 +350,24 @@
     function dibujarHorca(intento) {
         switch (intento) {
             case 1:
-                dibujarPoste();
-                break;
-            case 2:
-                dibujarSoporte();
-                dibujarBarra();
-                break;
-            case 3:
                 dibujarCuerda();
                 break;
-            case 4:
+            case 2:
                 dibujarCabeza();
                 break;
-            case 5:
+            case 3:
                 dibujarTronco();
                 break;
-            case 6:
+            case 4:
                 dibujarPiernaDerecha();
                 break;
-            case 7:
+            case 5:
                 dibujarPiernaIzquierda();
                 break;
-            case 8:
+            case 6:
                 dibujarBrazoDerecho();
                 break;
-            case 9:
+            case 7:
                 dibujarBrazoIzquierdo();
                 break;
             default:
@@ -417,13 +386,13 @@
 
             if(esLetra(letra)) {
                 let mayusculaLetra = letra.toUpperCase(); 
-                
+
                 if(arrPalabraSecreta.includes(mayusculaLetra)) { // Verifico si está dentro de la palabra secreta.
                     if (!letrasCorrectas.includes(mayusculaLetra)) { // Verifico si la letra correcta ya ha sido ingresada.
                         for (let indice = 0; indice < arrPalabraSecreta.length; indice++) {
                             if(mayusculaLetra === arrPalabraSecreta[indice]) {
                                 //Dibujar letra correcta.
-                                dibujarLetra(arrPalabraSecreta[indice], "60px", coordenadasX[indice], altoPizarra / 100 * 88);
+                                dibujarLetra(arrPalabraSecreta[indice], "40px", coordenadasX[indice], altoPizarra / 100 * 88);
                                 verificarGanador();
                                 letrasCorrectas.push(mayusculaLetra);
                             }
